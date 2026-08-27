@@ -25,7 +25,7 @@ export const Route = createFileRoute("/mirror")({
 
 function MirrorPage() {
   const [photo, setPhoto] = useState<string | null>(null);
-  const [styleId, setStyleId] = useState(hairstyles[0].id);
+  const [styleId, setStyleId] = useState(hairstyles[0]!.id);
   const inputRef = useRef<HTMLInputElement>(null);
   const style = hairstyles.find((h) => h.id === styleId)!;
 
@@ -71,9 +71,9 @@ function MirrorPage() {
 
         <div className="mt-10">
           <BeforeAfterSlider
-            before={photo ?? hairstyles[1].image}
+            before={photo ?? hairstyles[1]!.image}
             after={style.image}
-            beforeAlt={photo ? "Your uploaded photo" : hairstyles[1].alt}
+            beforeAlt={photo ? "Your uploaded photo" : hairstyles[1]!.alt}
             afterAlt={style.alt}
           />
           <p className="mt-4 font-sans text-xs text-muted-foreground">
